@@ -141,8 +141,6 @@ const Contact = () => {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 onChange={handleRecaptchaChange}
                 theme="dark"
               />
