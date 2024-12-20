@@ -58,7 +58,7 @@ const ProjectCard = (card: CardsProjects) => (
 const Projects = () => {
 
   return (
-    <section className="w-full flex items-center py-20" id="projects">
+    <section className="w-full flex items-center pt-20" id="projects">
     <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Encabezado de la sección */}
       <div className="text-center mb-16">

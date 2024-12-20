@@ -4,7 +4,7 @@ const About = () => {
   const { about, pDescriptionTop, pDescriptionBottom, skilsTitle, cards, skilsArray } = datita.about
 
   return (
-    <section className="w-full py-20 flex items-center  -" id={"about"}>
+    <section className="w-full pt-20 flex items-center  -" id={"about"}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Columna izquierda - Información personal */}
