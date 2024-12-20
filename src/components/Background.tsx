@@ -1,5 +1,10 @@
+import { ReactNode } from "react";
 
-const Background = ({ children }) => {
+interface BackgroundProps {
+  children: ReactNode;
+}
+
+const Background = ({ children }: BackgroundProps) => {
   return (
     <div className="min-h-screen bg-gray-900 relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
