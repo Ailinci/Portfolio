@@ -52,6 +52,9 @@ export const datita: Datita = {
         title: "Contacto",
         description: "¿Tienes un proyecto en mente? ¡Me encantaría escucharlo! Envíame un mensaje y me pondré en contacto contigo lo antes posible.",
         buttonlbl: "Enviar mensaje"
+    },
+    footer: {
+        body: "Hecho con ❤️ por Ailín Ojeda Pytel"
     }
 };
 export default datita;

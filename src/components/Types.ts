@@ -25,6 +25,9 @@ export interface Contact {
     description: string;
     buttonlbl: string
 }
+export interface Footer {
+    body: string
+}
 
 export interface Cards {
     title: string
@@ -46,4 +49,5 @@ export interface Datita {
     projects: Projects;
     about: About;
     hero: Hero;
+    footer: Footer
 }
