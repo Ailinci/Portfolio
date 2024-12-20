@@ -13,19 +13,16 @@ const Contact = () => {
     success: false,
     message: ''
   });
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const { title, description, buttonlbl } = datita.contact
 
-  const handleRecaptchaChange = (token: string) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+  const handleRecaptchaChange = (token: string | null) => {
     setRecaptchaToken(token);
   };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    // Verificar si el reCAPTCHA fue completado
     if (!recaptchaToken) {
       setStatus({
         submitted: true,
@@ -38,24 +35,30 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Agregar el token de reCAPTCHA a los datos del formulario
       if (form.current) {
-        const formData = new FormData(form.current);
-        formData.append('g-recaptcha-response', recaptchaToken);
-        const result = await emailjs.sendForm(
+        // Creamos un objeto con los datos del formulario y el token
+        const templateParams = {
+          user_name: form.current.user_name.value,
+          user_email: form.current.user_email.value,
+          message: form.current.message.value,
+          'g-recaptcha-response': recaptchaToken
+        };
+
+        const result = await emailjs.send(
           import.meta.env.VITE_FORM_SERVICE,
           import.meta.env.VITE_FORM_TEMPLATE,
-          form.current,
+          templateParams,  // Enviamos el objeto con todos los datos
           import.meta.env.VITE_FORM_KEY
         );
+
         if (result.text === 'OK') {
           setStatus({
             submitted: true,
             success: true,
             message: '¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.'
           });
-          form.current?.reset();
-          recaptchaRef.current?.reset(); // Resetear el reCAPTCHA
+          form.current.reset();
+          recaptchaRef.current?.reset();
           setRecaptchaToken(null);
         }
       }
@@ -63,12 +66,12 @@ const Contact = () => {
       setStatus({
         submitted: true,
         success: false,
-        message: `Hubo un error al enviar el mensaje. Por favor, intenta nuevamente. ${error}`
+        message: 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.'
       });
     } finally {
       setIsSubmitting(false);
     }
-  };
+};
 
   return (
     <section className="w-full py-20" id="contact">
