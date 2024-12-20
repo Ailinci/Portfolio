@@ -43,8 +43,8 @@ export const datita: Datita = {
                 title: "Porfolio",
                 description: "Mi portfolio personal ",
                 tags: ["React", "TypeScript"],
-                github: "https://github.com",
-                demo: "https://demo.com"
+                github: "https://github.com/Ailinci/Portfolio",
+                demo: "https://ailin-ojeda-pytel.vercel.app/"
             }
         ]
     },
