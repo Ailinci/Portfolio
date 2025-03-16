@@ -3,6 +3,7 @@ import { Send, CheckCircle, XCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha";
 import datita from './data';
+import { motion, useInView } from 'motion/react';
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -15,6 +16,10 @@ const Contact = () => {
   });
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const { title, description, buttonlbl } = datita.contact
+  const refView = useRef(null)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const isInView = useInView(refView, { once: true, threshold: 0.3 })
 
   const handleRecaptchaChange = (token: string | null) => {
     setRecaptchaToken(token);
@@ -71,11 +76,16 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
-};
+  };
 
   return (
     <section className="w-full py-20" id="contact">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+        ref={refView}
+        initial={{ y: 50, opacity: 0 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        whileHover={{ y: -5 }}>
         {/* Encabezado */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -176,7 +186,7 @@ const Contact = () => {
             </button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 };
