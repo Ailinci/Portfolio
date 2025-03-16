@@ -1,4 +1,3 @@
-
 export interface Hero {
     titleInto: string;
     titleName: string;
@@ -25,6 +24,7 @@ export interface Contact {
     description: string;
     buttonlbl: string
 }
+
 export interface Footer {
     body: string
 }
@@ -41,7 +41,9 @@ export interface CardsProjects {
     description: string;
     tags: Array<string>;
     github: string;
-    demo: string
+    demo: string;
+    imageUrl: string;
+    size?: 'small' | 'medium' | 'large'; // Tamaño para el grid
 }
 
 export interface Datita {

@@ -1,6 +1,5 @@
 import { Datita } from "./Types";
 
-
 export const datita: Datita = {
     hero: {
         titleInto: "Hola, soy",
@@ -32,20 +31,24 @@ export const datita: Datita = {
         cards: [
             {
                 id: 1,
-                title: "Planning Poker ",
-                description: "Una web-app cortita y al pié para poder puntuar tareas en ceremonias de scrum",
+                title: "Planning Poker",
+                description: "Una web-app cortita y al pié para poder puntuar tareas en ceremonias de scrum, facilitando la estimación colaborativa en equipos ágiles.",
                 tags: ["React", "TypeScript", "Firebase", "Tailwind"],
                 github: "https://github.com/Ailinci/planning-poker",
-                demo: "https://my-planning-date.vercel.app/"
+                demo: "https://my-planning-date.vercel.app/",
+                imageUrl: "/planning-poker.jpg", // Asegúrate de tener estas imágenes en tu carpeta public
+                size: "large"
             },
             {
                 id: 2,
-                title: "Porfolio",
-                description: "Mi portfolio personal ",
-                tags: ["React", "TypeScript"],
+                title: "Portfolio",
+                description: "Mi portfolio personal que muestra mis proyectos y habilidades como desarrolladora frontend, con un diseño elegante y dinámico.",
+                tags: ["React", "TypeScript", "Motion", "Tailwind"],
                 github: "https://github.com/Ailinci/Portfolio",
-                demo: "https://ailin-ojeda-pytel.vercel.app/"
-            }
+                demo: "https://ailin-ojeda-pytel.vercel.app/",
+                imageUrl: "/portfolio-ailu.jpg",
+                size: "medium"
+            },
         ]
     },
     contact: {
@@ -57,4 +60,5 @@ export const datita: Datita = {
         body: "Hecho con ❤️ por Ailín Ojeda Pytel"
     }
 };
+
 export default datita;
